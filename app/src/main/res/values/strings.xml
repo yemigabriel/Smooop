@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Smooop</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_contacts">Contacts</string>
+    <string name="title_activity_location">Location</string>
+    <string name="smooop_app_desc">Smooop gets you the help you need in moments of crisis.</string>
+    <string name="selected_alert_type">SELECTED_ALERT_TYPE</string>
+
+    <string name="title_activity_login">Login</string>
+
+    <string name="facebook_app_id">972988669565066</string>
+    <string name="fb_login_protocol_scheme">fb972988669565066</string>
+    <string name="facebook_application_id" translatable="false">972988669565066</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb972988669565066</string>
+
+    <string name="twitter_consumer_key" translatable="false">qYT1sMuWEjsAnFeUwz2CW3vZy</string>
+    <string name="twitter_consumer_secret" translatable="false">zkSVInl06xfjzNSQZPcLwfJX5CnU482NW0NxYfQ7uwXNGepvMD</string>
+    <string name="title_activity_auth">SignIn</string>
+
+    <string name="places_api_key">AIzaSyBY0JNaGdnZJ51BBjgjeMO-KExZEX-uCrg</string>
+
+
+</resources>

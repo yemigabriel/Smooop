@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/outline_home_white_24dp"
+            android:title="Home"/>
+        <!--<item-->
+            <!--android:id="@+id/nav_profile"-->
+            <!--android:icon="@drawable/outline_perm_identity_white_24dp"-->
+            <!--android:title="Profile"/>-->
+        <item
+            android:id="@+id/nav_contacts"
+            android:icon="@drawable/outline_contact_phone_white_24dp"
+            android:title="Contacts"/>
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/outline_notifications_active_white_24dp"
+            android:title="Notifications"/>
+        <item
+            android:id="@+id/nav_traffic_updates"
+            android:icon="@drawable/outline_traffic_white_24dp"
+            android:title="Traffic updates"/>
+    </group>
+
+    <item android:title="-">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/outline_share_white_24dp"
+                android:title="Share"/>
+            <!--<item-->
+                <!--android:id="@+id/nav_faq"-->
+                <!--android:icon="@drawable/outline_help_outline_white_24dp"-->
+                <!--android:title="FAQ"/>-->
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/outline_local_post_office_white_24dp"
+                android:title="Feedback"/>
+        </menu>
+    </item>
+
+</menu>

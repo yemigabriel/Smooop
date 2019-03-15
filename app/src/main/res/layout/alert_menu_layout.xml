@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/alert_frame"
+    android:visibility="invisible"
+    >
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="148dp"
+        android:background="@drawable/chips"
+        android:text="Tap for crime"
+        android:padding="4dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tap for health"
+        android:layout_gravity="center|bottom"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="148dp"
+        android:background="@drawable/chips"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:padding="4dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/crime_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="75dp"
+        android:src="@drawable/crime_96"
+        app:fabSize="normal"
+        android:visibility="visible"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/health_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="75dp"
+        android:src="@drawable/ambulance_white_96"
+        app:fabSize="normal"
+        android:visibility="visible" />
+
+</FrameLayout>
