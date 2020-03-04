@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
+    <!-- <uses-permission android:name="android.permission.SEND_SMS" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -18,16 +18,17 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--<meta-data-->
-            <!--android:name="com.google.android.geo.API_KEY"-->
-            <!--android:value="AIzaSyBzH1VNdokNlDBaDsgkGdlAgEqysbsq2QE" />-->
+
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.geo.API_KEY" -->
+        <!-- android:value="AIzaSyBzH1VNdokNlDBaDsgkGdlAgEqysbsq2QE" /> -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBY0JNaGdnZJ51BBjgjeMO-KExZEX-uCrg" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"
             tools:replace="android:value" />
@@ -111,12 +112,19 @@
             android:name=".TweetBroadcastReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_SUCCESS"/>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_FAILURE"/>
-                <action android:name="com.twitter.sdk.android.tweetcomposer.TWEET_COMPOSE_CANCEL"/>
+                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_SUCCESS" />
+                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_FAILURE" />
+                <action android:name="com.twitter.sdk.android.tweetcomposer.TWEET_COMPOSE_CANCEL" />
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.devstudiosng.yg.smooop.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

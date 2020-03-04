@@ -69,7 +69,8 @@ public class HomeActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+//            super.onBackPressed();
+            finish();
         }
     }
 
@@ -138,7 +139,7 @@ public class HomeActivity extends AppCompatActivity
 //
 //        }
         else if (id == R.id.nav_feedback) {
-            sendEmailIntent("smooop@devstudios.ng");
+            sendEmailIntent("help@smooop.com");
         }
 
         if (fragment!=null) {

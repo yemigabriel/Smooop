@@ -9,20 +9,27 @@
     android:background="#20FFCDD2">
 
 
-    <ImageView android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:src="@drawable/appbg"
-               android:adjustViewBounds="true"
-               android:scaleType="centerCrop"
-               android:alpha="0.5"/>
-
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    <!--<ImageView android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/appbg"-->
+    <!--android:adjustViewBounds="true"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--android:alpha="0.5"/>-->
 
 
-    <!--<Button-->
+    <fragment android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MapsActivity" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <!--<Button-->
         <!--android:id="@+id/health_emergency"-->
         <!--android:layout_width="0dp"-->
         <!--android:layout_height="wrap_content"-->
@@ -32,7 +39,7 @@
         <!--app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"-->
         <!--app:layout_constraintTop_toTopOf="parent"-->
         <!--style="@style/Widget.AppCompat.Button.Colored"/>-->
-    <!--<Button-->
+        <!--<Button-->
         <!--android:id="@+id/shooting_emergency"-->
         <!--android:layout_width="0dp"-->
         <!--android:layout_height="wrap_content" android:layout_marginEnd="24dp"-->
@@ -41,53 +48,84 @@
         <!--app:layout_constraintStart_toStartOf="parent"-->
         <!--app:layout_constraintTop_toBottomOf="@+id/health_emergency"-->
         <!--style="@style/Widget.AppCompat.Button.Colored"/>-->
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_location_on_black_18dp"
-        android:tint="@color/colorAccent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-        android:id="@+id/current_location_label"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp" android:layout_marginTop="16dp"
-        tools:text="53 Sumonu Alonge street, Igando, Lagos"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toStartOf="@+id/refresh_button"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <ImageView
-        android:id="@+id/refresh_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_marginEnd="24dp"
-        android:layout_marginTop="16dp"
-        android:tint="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-        android:id="@+id/tap_help"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp" android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="Tap the icon above for help"
-        android:textColor="@color/colorAccent" android:textStyle="bold"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.65"/>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_location_on_black_18dp"
+            android:tint="@color/colorAccent" android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/current_location_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp" android:layout_marginTop="16dp"
+            tools:text="53 Sumonu Alonge street, Igando, Lagos"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/refresh_button"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+            android:id="@+id/refresh_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:tint="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"/>
 
 
-    <!--android:src="@drawable/ic_sync_black_24dp"-->
+        <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="120dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent">-->
 
-    <!--<android.support.v7.widget.CardView-->
+        <!--<TextView-->
+        <!--android:id="@+id/tapa_help"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:gravity="center"-->
+        <!--android:text="Tap the icon above for help"-->
+        <!--android:textColor="@color/colorAccent"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse" />-->
+
+
+        <!--</android.support.v7.widget.CardView>-->
+
+        <TextView
+            android:id="@+id/tap_help"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Tap the icon above for help"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.65"/>
+
+
+
+        <!--android:src="@drawable/ic_sync_black_24dp"-->
+
+        <!--<android.support.v7.widget.CardView-->
         <!--android:id="@+id/cardView"-->
         <!--android:layout_width="0dp"-->
         <!--android:layout_height="wrap_content"-->
@@ -102,25 +140,25 @@
         <!--app:cardBackgroundColor="#FFFFFFFF" app:cardCornerRadius="4dp">-->
 
         <!--<LinearLayout android:layout_width="match_parent"-->
-                      <!--android:layout_height="wrap_content"-->
-                      <!--android:orientation="vertical">-->
-            <!--<ImageView android:layout_width="match_parent"-->
-                       <!--android:layout_height="wrap_content"-->
-                       <!--android:src="@drawable/ambulance"-->
-                       <!--android:adjustViewBounds="true"-->
-                       <!--android:scaleType="centerCrop"/>-->
-            <!--<TextView android:layout_width="match_parent"-->
-                      <!--android:layout_height="wrap_content"-->
-                      <!--android:padding="4dp"-->
-                      <!--android:text="Health"-->
-                      <!--android:textStyle="bold"-->
-                      <!--android:textColor="@color/colorAccent"-->
-                      <!--android:textAppearance="@style/TextAppearance.AppCompat.Medium" />-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <!--<ImageView android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ambulance"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:scaleType="centerCrop"/>-->
+        <!--<TextView android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="4dp"-->
+        <!--android:text="Health"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/colorAccent"-->
+        <!--android:textAppearance="@style/TextAppearance.AppCompat.Medium" />-->
         <!--</LinearLayout>-->
 
-    <!--</android.support.v7.widget.CardView>-->
+        <!--</android.support.v7.widget.CardView>-->
 
-    <!--<android.support.v7.widget.CardView-->
+        <!--<android.support.v7.widget.CardView-->
         <!--android:id="@+id/cardView2"-->
         <!--android:layout_width="0dp"-->
         <!--android:layout_height="wrap_content" android:layout_marginBottom="16dp"-->
@@ -135,27 +173,27 @@
         <!--app:cardBackgroundColor="#FFFFFFFF" app:cardCornerRadius="4dp">-->
 
         <!--<LinearLayout android:layout_width="match_parent"-->
-                      <!--android:layout_height="wrap_content"-->
-                      <!--android:orientation="vertical">-->
-            <!--<ImageView android:layout_width="match_parent"-->
-                       <!--android:layout_height="wrap_content"-->
-                       <!--android:src="@drawable/burglar"-->
-                       <!--android:adjustViewBounds="true"-->
-                       <!--android:scaleType="centerCrop"/>-->
-            <!--<TextView android:layout_width="match_parent"-->
-                      <!--android:layout_height="wrap_content"-->
-                      <!--android:padding="4dp"-->
-                      <!--android:text="Armed Robbery"-->
-                      <!--android:textStyle="bold"-->
-<!--android:textColor="@color/colorAccent"-->
-                      <!--android:textAppearance="@style/TextAppearance.AppCompat.Medium" />-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <!--<ImageView android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/burglar"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:scaleType="centerCrop"/>-->
+        <!--<TextView android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="4dp"-->
+        <!--android:text="Armed Robbery"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/colorAccent"-->
+        <!--android:textAppearance="@style/TextAppearance.AppCompat.Medium" />-->
         <!--</LinearLayout>-->
 
 
 
-    <!--</android.support.v7.widget.CardView>-->
+        <!--</android.support.v7.widget.CardView>-->
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabPanic"

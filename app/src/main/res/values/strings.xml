@@ -27,6 +27,10 @@
     <string name="title_activity_auth">SignIn</string>
 
     <string name="places_api_key">AIzaSyBY0JNaGdnZJ51BBjgjeMO-KExZEX-uCrg</string>
+    <string name="maps_android_api_key">AIzaSyBY0JNaGdnZJ51BBjgjeMO-KExZEX-uCrg</string>
+    <!--<string name="maps_android_api_key">AIzaSyBmcg6PqGsAYg0eNjInZpSpc-6zMmMNhQ8</string>-->
+
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

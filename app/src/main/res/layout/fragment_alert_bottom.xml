@@ -3,12 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlertBottomFragment">
+    tools:context=".AlertBottomFragment"
+    android:padding="16dp">
 
-    <android.support.v7.widget.RecyclerView
+    <com.thinkincode.utils.views.HorizontalFlowLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/alert_recyclerview"
-        tools:listitem="@layout/eppalerttype_layout"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/alert_flowlayout">
+
+
+    </com.thinkincode.utils.views.HorizontalFlowLayout>
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/alert_recyclerview"-->
+        <!--tools:listitem="@layout/eppalerttype_layout"/>-->
 
 </FrameLayout>

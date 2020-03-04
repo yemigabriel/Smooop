@@ -13,7 +13,9 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +59,7 @@ import io.realm.RealmResults;
 
 import com.devstudiosng.yg.smooop.model.EppLocation;
 import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.model.PlaceLikelihood;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
@@ -69,16 +72,18 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 //import com.google.android.libraries.places.api.net.PlacesClient;
 
 
-public class LocationActivity extends Activity {
+public class LocationActivity extends AppCompatActivity {
 
 
-    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 123098;
+    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 198;
     private String TAG = this.getClass().getSimpleName();
 //    protected GeoDataClient mGeoDataClient;
 //    PlaceDetectionClient mPlaceDetectionClient;
 
     private GoogleApiClient googleApiClient;
     final static int REQUEST_LOCATION = 199;
+
+    public List<PlaceLikelihood> placeLikelihoodList;
 
     // Initialize Places.
 
@@ -235,14 +240,17 @@ public class LocationActivity extends Activity {
                 if (task.isSuccessful()){
                     FindCurrentPlaceResponse response = task.getResult();
                     if (response != null) {
+                        placeLikelihoodList = response.getPlaceLikelihoods();
                         for (com.google.android.libraries.places.api.model.PlaceLikelihood placeLikelihood : response.getPlaceLikelihoods()) {
-                            Log.i(TAG, String.format("Place '%s' has likelihood: %f",
+                            Log.e(TAG, String.format("Place '%s' has likelihood: %f",
                                     placeLikelihood.getPlace().getName(),
                                     placeLikelihood.getLikelihood()));
                         }
 
                         com.google.android.libraries.places.api.model.PlaceLikelihood likelihood = response.getPlaceLikelihoods().get(0);
                         if (likelihood!=null) {
+//                            PlacesBottomDialogFragment fragment = new PlacesBottomDialogFragment();
+//                            fragment.show(getSupportFragmentManager(), "Places list");
                             final EppLocation eppLocation = new EppLocation();
                             eppLocation.setId(UUID.randomUUID().toString());
                             eppLocation.setPlace(likelihood.getPlace().getAddress());
@@ -264,8 +272,10 @@ public class LocationActivity extends Activity {
                                     Toast.makeText(LocationActivity.this, "Current location added successfully", Toast.LENGTH_LONG).show();
                                 }
                             });
-
-                            mDesc.setText(likelihood.getPlace().getAddress() + " - " + likelihood.getPlace().getLatLng().latitude +
+//
+//                            mDesc.setText(likelihood.getPlace().getAddress() + " - " + likelihood.getPlace().getLatLng().latitude +
+//                                    "," + likelihood.getPlace().getLatLng().longitude);
+                            mDesc.setText(likelihood.getPlace().getLatLng().latitude +
                                     "," + likelihood.getPlace().getLatLng().longitude);
 
 //                        likelyPlaces.release();
@@ -360,6 +370,7 @@ public class LocationActivity extends Activity {
                         @Override
                         public void onConnected(Bundle bundle) {
                             Log.e(TAG, "api client connnected");
+//                            getUserCurrentPlace();
                         }
 
                         @Override
@@ -399,6 +410,8 @@ public class LocationActivity extends Activity {
 //                                finish();
                             } catch (IntentSender.SendIntentException e) {
                                 // Ignore the error.
+                                Log.e(TAG, e.getMessage());
+
                             }
                             break;
                     }
@@ -435,16 +448,19 @@ public class LocationActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_LOCATION) {
-            if (resultCode == resultCode) {
+            if (resultCode == RESULT_OK) {
                 Log.e(TAG, "Location activated");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        getUserCurrentPlace();
-                    }
-                });
+                getUserCurrentPlace();
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        getUserCurrentPlace();
+//                    }
+//                });
             }
         }
 
     }
+
+
 }
